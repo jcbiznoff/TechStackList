@@ -9,9 +9,8 @@ import LibraryList from './components/LibraryList';
 //provider can only have one child. provider acts a glue between redux and react-native
 const App = () => {
     return (
-
         <Provider store={createStore(reducers)}>
-        	<View style={{ flex :1}}>
+        	<View style={ { flex :1 } } >
         		<Header headerText="Tech Stack" />
         		<LibraryList />
         	</View>
