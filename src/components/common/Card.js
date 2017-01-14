@@ -7,7 +7,7 @@ const Card = (props) => {
 			{props.children}
 		</View>
     );
-}
+};
 
 const styles = {
     containerStyle: {
@@ -26,6 +26,6 @@ const styles = {
         marginRight: 5,
         marginTop: 10
     }
-}
+};
 
 export { Card };

@@ -5,16 +5,16 @@ const Input = ({ label, value, onChangeText, placeholder, secureTextEntry }) => 
     const { inputStyle, labelStyle, containerStyle } = styles;
 
     return (
-        <View style = {containerStyle}>
-            <Text style = {labelStyle}>{label}</Text>
+        <View style={containerStyle}>
+            <Text style={labelStyle}>{label}</Text>
             <TextInput
                 underlineColorAndroid='transparent'
-                placeholder = {placeholder}
-                autoCorrect = {false}
-                secureTextEntry = {secureTextEntry}
-                style = {inputStyle}
-                value = {value}
-                onChangeText = {onChangeText}
+                placeholder={placeholder}
+                autoCorrect={false}
+                secureTextEntry={secureTextEntry}
+                style={inputStyle}
+                value={value}
+                onChangeText={onChangeText}
             />
         </View>
     );

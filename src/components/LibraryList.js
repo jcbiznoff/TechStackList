@@ -10,8 +10,8 @@ class LibraryList extends Component {
             rowHasChanged: (r1, r2) => r1 !== r2
         }); //just a boiler plate
 
-        this.dataSource = ds.cloneWithRows(this.props.libraries); //very important.
         //Its like setting the data for the adapter
+        this.dataSource = ds.cloneWithRows(this.props.libraries); //very important.
     }
 
     renderRow(library) { //render an item like what we do in a viewholder

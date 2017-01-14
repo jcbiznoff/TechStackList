@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, TouchableWithoutFeedback, View } from 'react-native';
+import { LayoutAnimation,Text, TouchableWithoutFeedback, View } from 'react-native';
 import { connect } from 'react-redux';
 import { CardSection } from './common';
 import * as actions from '../actions';
@@ -9,11 +9,18 @@ import * as actions from '../actions';
 //2. import connect from react-redux
 
 class ListItem extends Component {
+    componentWillUpdate(){
+        LayoutAnimation.spring();
+    }
+
     renderDescription() {
-        const { library, selectedLibraryId } = this.props;
-        if (library.id === selectedLibraryId) {
+        const { library, expanded } = this.props;
+
+        if (expanded) {
             return (
-                <Text>{library.description}</Text>
+                <CardSection>    
+                <Text style={{flex:1}}>{library.description}</Text>
+                </CardSection>
             );
         }
     }
@@ -24,7 +31,7 @@ class ListItem extends Component {
 
         return (
             <TouchableWithoutFeedback
-                onPress={() => this.props.selectLibrary(id)}
+                onPress={() => this.props.selectLibrary(id)} //this is defined in actions
             >
                 <View>
                     <CardSection>
@@ -46,8 +53,10 @@ const styles = {
     }
 };
 
-const mapStateToProps = state => {
-    return { selectedLibraryId: state.selectedLibraryId };
+const mapStateToProps = (state, ownProps) => { //ownProps is equal to this.props
+    const expanded = state.selectedLibraryId === ownProps.library.id;
+
+    return { expanded };
 };
 
 //3. add connect helper: first arg = mapstatetoprops, second arg = actions
